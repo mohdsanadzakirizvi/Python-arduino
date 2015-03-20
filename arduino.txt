@@ -1,0 +1,34 @@
+String data="";
+void setup(){
+Serial.begin(9600);
+Serial.println("OF<sdfv");
+}
+
+
+void loop(){
+
+  char localdata;
+  if(Serial.available()>0){
+   localdata= (char ) Serial.read();
+   
+   if(localdata=='\n'){
+   exec();
+   
+   }
+   else{
+   data=data+localdata;
+   
+   }
+  
+  }
+
+}
+
+
+void exec(){
+  delay(500);
+  Serial.println(data);
+  data="";
+  
+  
+}
